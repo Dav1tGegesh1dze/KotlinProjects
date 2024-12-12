@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="10dp">
+    <!--I couldn't center some things perefectly and works bad on small phones ):-->
+    <!-- The biggest frameLayout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="10dp">
+
+        <!-- Andes Mountain Image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:id="@+id/andesMountainImageView"
+            android:src="@drawable/andesmountain"
+            android:scaleType="fitCenter" />
+
+        <!-- First Ellipse + Icon -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstEllipse"
+                android:src="@drawable/ellipse1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/leftArrowIcon"
+                android:src="@drawable/leftarrowicon"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <!-- Second Ellipse + Icon -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondEllipse"
+                android:src="@drawable/ellipse2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/archiveIcon"
+                android:src="@drawable/archiveicon"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <!-- rectangle and its components of the photo -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/photorectangle"
+                android:id="@+id/andesPhotoRectangle"/>
+
+            <!-- First text top starting -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textOfPlace"
+                    android:textSize="24sp"
+                    android:textColor="@color/titleColor" />
+            </FrameLayout>
+
+            <!-- symbol plus + text -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginBottom="40dp"
+                android:layout_marginStart="20dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/locationSymbol"
+                    android:src="@drawable/locationsymbolrectangle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/allrectangletextcolor"
+                    android:id="@+id/locationTextView"
+                    android:textSize="18sp"
+                    android:layout_marginStart="24dp"/>
+            </FrameLayout>
+
+            <!-- top  and end text -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="25dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="price"
+                    android:textColor="@color/allrectangletextcolor" />
+            </FrameLayout>
+
+            <!--bottom end text -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="35dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/priceNumberTextView"
+                    android:textSize="26sp"
+                    android:text="@string/price_text"
+                    android:textColor="@color/allrectangletextcolor" />
+
+            </FrameLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!--text after the photo-->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overview"
+            android:textSize="30sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart= "200dp"
+            android:layout_marginTop="14dp"
+            android:text = "Details"
+            android:textSize="15sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:orientation="horizontal">
+
+        <!-- First clock symbol  + text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smallRect1"
+                    android:src="@drawable/smalliconrectangle1" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/firstrectClock"
+                    android:src="@drawable/clock1rectangleicon"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/smallTextTimeTextView"
+                android:textColor="#7E7E7E"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <!-- Second one -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smallRect2"
+                    android:src="@drawable/smalliconrectangle2" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/secondrectCloud"
+                    android:src="@drawable/cloud2rectangleicon"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/smallTextTemperatureTextView"
+                android:textColor="#7E7E7E"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <!-- Third -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smallRect3"
+                    android:src="@drawable/smalliconrectangle3" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/thirdRectStar"
+                    android:src="@drawable/star3rectangleicon"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/smallTextRatingTextView"
+                android:textColor="@color/smalltextColor"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/bigReviewText"
+        android:textColor="@color/smallTextOverviewColor"
+        android:maxLines="4" />
+
+
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
+        <!-- Background rectangle -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bottomrectangle"
+            android:id="@+id/bottomRectangle" />
+
+        <!-- Text and Icon centered -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <!-- Book Now -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Book now"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"/>
+
+            <!-- Send Symbol -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sendiconbottomrectangle"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+
+
+
+
+</LinearLayout>
