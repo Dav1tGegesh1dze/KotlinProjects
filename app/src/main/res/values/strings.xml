@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Taks7</string>
+    <!--first page strings-->
+    <string name="background_descroption">background imageView from the first page </string>
+    <string name="login_description">First page log in  button description</string>
+    <string name="registerbutton_description">First page register button description</string>
+
+    <!--second page, log in strings-->
+    <string name="backicon_imageview">imageView of back button, at the top of constraint layout</string>
+    <string name="login_textview">Log In</string>
+    <string name="first_imageView">imageView of email </string>
+    <string name="first_edittext">Email:</string>
+    <string name="second_imageView">imageView of password </string>
+    <string name="second_edittext">Password:</string>
+    <string name="login_button">login button rectangle imageview</string>
+
+    <!--third page, register strings -->
+    <string name="register_textview">Register</string>
+    <string name="next_button">next button rectangle imageview while registering</string>
+
+
+    <!--fourth page -->
+    <string name="username_editText">Username:</string>
+    <string name="signup_imageView">imageView of signup button</string>
+    <string name="policy_text">By signing up, you agree to Photo’s Terms of Service and Privacy Policy.</string>
+
+
+</resources>

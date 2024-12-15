@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "910583618059",
+    "project_id": "loginapp-36927",
+    "storage_bucket": "loginapp-36927.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910583618059:android:b72456a112729ab3af050e",
+        "android_client_info": {
+          "package_name": "com.example.taks7"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjx_OVvmXc8O-ceq4wku-GZMiAkhazitQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

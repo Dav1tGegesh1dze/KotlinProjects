@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <!-- Back icon from Log In -->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/backIcon2"
+        android:src="@drawable/backarrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="@string/backicon_imageview"/>
+    <!-- Text Resiter -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:id="@+id/registerInText"
+        android:text="@string/register_textview"
+        app:layout_constraintStart_toStartOf="@id/backIcon2"
+        app:layout_constraintTop_toBottomOf="@id/backIcon2"
+        android:layout_marginTop="10dp"/>
+
+    <!-- FrameLayout for 1st rect for email -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailFrameLayout2"
+        app:layout_constraintStart_toStartOf="@id/registerInText"
+        app:layout_constraintTop_toBottomOf="@id/registerInText"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emailrectangle"
+            android:contentDescription="@string/first_imageView"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:hint="@string/first_edittext"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:id="@+id/emailEditTextRegisterPage"
+            android:layout_gravity="center"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress"/>
+
+    </FrameLayout>
+
+    <!-- FrameLayout for 2nd rect for password -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordFrameLayout2"
+        app:layout_constraintStart_toStartOf="@id/emailFrameLayout2"
+        app:layout_constraintTop_toBottomOf="@id/emailFrameLayout2"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/passwordrectangle"
+            android:contentDescription="@string/second_imageView"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:hint="@string/second_edittext"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:id="@+id/passwordEditTextRegisterPage"
+            android:autofillHints="password"
+            android:inputType="textPassword"/>
+
+    </FrameLayout>
+
+    <!-- frame layout for button of rect with textView inside -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondPageNextButton"
+        android:src="@drawable/nextbutton"
+        app:layout_constraintTop_toBottomOf="@+id/passwordFrameLayout2"
+        app:layout_constraintStart_toStartOf="@+id/passwordFrameLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/passwordFrameLayout2"
+        android:layout_marginTop="15dp"
+        android:contentDescription="@string/next_button"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorTextRegistration"
+        app:layout_constraintStart_toStartOf="@id/secondPageNextButton"
+        app:layout_constraintEnd_toEndOf="@id/secondPageNextButton"
+        app:layout_constraintTop_toBottomOf="@id/secondPageNextButton"
+        android:textSize="30sp"
+        android:textColor="@color/error_text_color"
+        android:layout_marginTop="25sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

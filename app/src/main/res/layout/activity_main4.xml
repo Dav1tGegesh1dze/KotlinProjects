@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <!-- Back icon from Log In -->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/backIcon3"
+        android:src="@drawable/backarrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="@string/backicon_imageview"/>
+    <!-- Text Log In -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:id="@+id/registerInText"
+        android:text="@string/register_textview"
+        app:layout_constraintStart_toStartOf="@id/backIcon3"
+        app:layout_constraintTop_toBottomOf="@id/backIcon3"
+        android:layout_marginTop="10dp"/>
+
+    <!-- FrameLayout for username -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameFrameLayout"
+        app:layout_constraintStart_toStartOf="@id/registerInText"
+        app:layout_constraintTop_toBottomOf="@id/registerInText"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emailrectangle"
+            android:contentDescription="@string/first_imageView"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/usernameEditText"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="@string/username_editText"
+            android:layout_gravity="center"
+            android:autofillHints="username"
+            android:inputType="textPersonName"/>
+
+    </FrameLayout>
+
+    <!-- frame layout for button of rect with textView inside -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUpButton"
+        android:src="@drawable/signupbutton"
+        app:layout_constraintTop_toBottomOf="@+id/usernameFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/usernameFrameLayout"
+        app:layout_constraintEnd_toEndOf="@+id/usernameFrameLayout"
+        android:layout_marginTop="15dp"
+        android:contentDescription="@string/signup_imageView"/>
+
+    <!-- policy text-->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:id="@+id/policyText"
+        android:text="@string/policy_text"
+        app:layout_constraintStart_toStartOf="@id/signUpButton"
+        app:layout_constraintEnd_toEndOf="@id/signUpButton"
+        app:layout_constraintTop_toBottomOf="@id/signUpButton"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/error_text_color"
+        android:id="@+id/usernameErrorTextView"
+        app:layout_constraintStart_toStartOf="@+id/policyText"
+        app:layout_constraintEnd_toEndOf="@+id/policyText"
+        app:layout_constraintTop_toBottomOf="@+id/policyText"
+        android:layout_marginTop="20dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
