@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Task8</string>
+
+    <!--Background ImageView  -->
+    <string name="background_imageview">Background photo of whole screen</string>
+
+    <!--First (log In) textView -->
+    <string name="log_in_text">Log in</string>
+    <string name="log_in_description">Log in TextView above</string>
+
+    <!--first Name EditText -->
+    <string name="first_name_hintEdittext">First name:</string>
+    <string name="first_name_description">first name edit Text input</string>
+
+    <!--last Name EditText -->
+    <string name="last_name_hintEdittext">Last name:</string>
+    <string name="last_name_description">Last name edit Text input</string>
+
+    <!--Age EditText -->
+    <string name="age_hintEdittext">Age:</string>
+    <string name="age_description">age edit Text input</string>
+
+    <!--email EditText -->
+    <string name="email_hintEdittext">Email:</string>
+    <string name="email_description">email edit Text input</string>
+
+</resources>

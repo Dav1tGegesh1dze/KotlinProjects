@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!-- თავიდან დავიწყე და მერე ყველა დესქრიფშენი აღარ გავწერე-->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/backgroundphoto"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/background_imageview"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/log_in_text"
+        android:textSize="50sp"
+        android:textColor="@color/white"
+        android:id="@+id/titleTextView"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:contentDescription="@string/log_in_description"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/first_name_hintEdittext"
+        android:id="@+id/firstNameEditText"
+        android:textColorHint="@color/white"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintEnd_toEndOf="@id/titleTextView"
+        android:gravity="center"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/first_name_description"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint = "@string/last_name_hintEdittext"
+        android:id="@+id/lastNameEditText"
+        android:textColorHint="@color/white"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/firstNameEditText"
+        app:layout_constraintStart_toStartOf="@id/firstNameEditText"
+        app:layout_constraintEnd_toEndOf="@id/firstNameEditText"
+        android:gravity="center"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/last_name_description"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint = "@string/age_hintEdittext"
+        android:id="@+id/ageEditText"
+        android:textColorHint="@color/white"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/lastNameEditText"
+        app:layout_constraintStart_toStartOf="@id/lastNameEditText"
+        app:layout_constraintEnd_toEndOf="@id/lastNameEditText"
+        android:gravity="center"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/age_description"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint = "@string/email_hintEdittext"
+        android:id="@+id/emailEditText"
+        android:textColorHint="@color/white"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/ageEditText"
+        app:layout_constraintStart_toStartOf="@id/ageEditText"
+        app:layout_constraintEnd_toEndOf="@id/ageEditText"
+        android:gravity="center"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/email_description"/>
+    
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLinearLayout"
+        app:layout_constraintTop_toTopOf="@id/emailEditText"
+        app:layout_constraintStart_toStartOf="@id/emailEditText"
+        app:layout_constraintEnd_toEndOf="@id/emailEditText"
+        android:layout_marginTop="60dp" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addUserButton"
+            android:text="Add User"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/removeUserButton"
+            android:layout_marginEnd="5dp"
+            android:text="Remove User"
+            android:layout_weight="1"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/updateUserButton"
+            android:text="Update User"
+            android:layout_weight="1"  />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/textViewLinearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLinearLayout"
+        app:layout_constraintStart_toStartOf="@+id/buttonLinearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLinearLayout"
+        android:layout_marginTop="30dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/activeUser"
+            android:text="Active Users: 0"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:textSize="40sp"
+            android:layout_marginEnd="5dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/deletedUser"
+            android:text="Deleted Users: 0"
+            android:layout_weight="1"
+            android:textSize="40sp"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorAcessTextView"
+        android:textSize="30sp"
+        android:textColor="@color/error_text_color"
+        app:layout_constraintTop_toBottomOf="@id/textViewLinearLayout"
+        app:layout_constraintStart_toStartOf="@id/textViewLinearLayout"
+        app:layout_constraintEnd_toEndOf="@id/textViewLinearLayout"
+        android:layout_marginTop="15dp" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
