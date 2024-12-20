@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.fragment.ktx)  // This replaces the fragment-ktx dependency
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
