@@ -20,25 +20,24 @@ class AddUserFragment : Fragment() {
 
     private var _binding: FragmentAddUserBinding? = null
     private val binding get() = _binding!!
-
     private val users = mutableListOf<User>()
 
-    fun getUsersList(): List<User> = users
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentAddUserBinding.inflate(inflater, container, false)
 
+        // Add user to the list
         binding.addButton.setOnClickListener {
             val idText = binding.idEditText.text.toString()
             if (idText.isEmpty()) {
-                Toast.makeText(context, " ID", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Please enter an ID", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val id = idText.toIntOrNull()
             if (id == null) {
-                Toast.makeText(context, " valid  ID", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Id: ", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -49,14 +48,19 @@ class AddUserFragment : Fragment() {
             val email = binding.emailEditText.text.toString()
 
             if (firstName.isBlank() || lastName.isBlank()) {
-                Toast.makeText(context, "Please fill", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Write in every field", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val user = User(id, firstName, lastName, birthday, address, email)
             users.add(user)
-            Toast.makeText(context, "User added: ${users.size}", Toast.LENGTH_SHORT).show()
+            //checking that exists
+            Toast.makeText(context, "User size: ${users.size}", Toast.LENGTH_SHORT).show()
 
+            //send to activity
+            (activity as? MainActivity)?.updateUsers(users)
+
+            // Clear input fields
             binding.idEditText.text.clear()
             binding.firstNameEditText.text.clear()
             binding.lastNameEditText.text.clear()
