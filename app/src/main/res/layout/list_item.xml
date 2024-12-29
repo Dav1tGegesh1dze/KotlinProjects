@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/rectangle_shape"> <!-- Rectangle background -->
+
+    <!-- Order Text -->
+    <TextView
+        android:id="@+id/orderText"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_string"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="40dp" />
+
+    <!-- Order Number -->
+    <TextView
+        android:id="@+id/orderNumber"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="12345"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/orderText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/orderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: 123456789"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp" />
+
+    <!-- Tracking Number -->
+    <TextView
+        android:id="@+id/trackingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tracking number:"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/orderText"
+        app:layout_constraintStart_toStartOf="@id/orderText"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/trackingNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TN12345678"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/trackingText"
+        app:layout_constraintTop_toTopOf="@id/trackingText"
+        android:layout_marginStart="10dp" />
+
+    <!-- Quality -->
+    <TextView
+        android:id="@+id/qualityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quality:"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/trackingText"
+        app:layout_constraintStart_toStartOf="@id/trackingText"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/qualityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/qualityText"
+        app:layout_constraintTop_toTopOf="@id/qualityText"
+        android:layout_marginStart="5dp" />
+
+    <!-- Subtotal -->
+    <TextView
+        android:id="@+id/subtotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtotal:"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/qualityText"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="40dp" />
+
+    <TextView
+        android:id="@+id/subtotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$120"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/subtotalText"
+        app:layout_constraintTop_toTopOf="@id/qualityText"
+        android:layout_marginStart="5dp" />
+
+
+    <TextView
+        android:id="@+id/pendingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/qualityText"
+        app:layout_constraintStart_toStartOf="@id/qualityText"
+        android:layout_marginTop="20dp" />
+
+    <!-- Details -->
+    <Button
+        android:id="@+id/detailsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textSize="14sp"
+        android:padding="8dp"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/pendingText"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
