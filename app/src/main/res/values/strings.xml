@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Task13</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button_image">ImageView of back button</string>
+    <string name="profile_image">ImageView of profile photo (rounded photo of profile)</string>
+    <string name="admin_text">Text which is imported as imageView from drawable</string>
+    <string name="properties_button">properties button is imported as imageView from drawable</string>
+    <string name="line_image">line image , just live division between recycler and images</string>
+    <string name="background_rect">Big background rectangle for the bottom edittext and button</string>
+    <string name="send_button">Send button for messages</string>
+
+    <!-- hints -->
+    <string name="input_message_hint">Type your messages here:</string>
+
+</resources>
