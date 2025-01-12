@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/ordersParentFragment">
+
+    <fragment
+        android:id="@+id/activeOrdersFragment"
+        android:name="com.example.task14.ActiveOrderFragment.ActiveOrdersFragment"
+        android:label="fragment_active_orders"
+        tools:layout="@layout/fragment_active_orders" >
+        <action
+            android:id="@+id/action_activeOrdersFragment_to_completedOrdersFragment"
+            app:destination="@id/completedOrdersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/completedOrdersFragment"
+        android:name="com.example.task14.CompletedOrderFragment.CompletedOrdersFragment"
+        android:label="fragment_completed_orders"
+        tools:layout="@layout/fragment_completed_orders" >
+        <action
+            android:id="@+id/action_completedOrdersFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ordersParentFragment"
+        android:name="com.example.task14.ParentFragment.OrdersParentFragment"
+        android:label="fragment_orders_parent"
+        tools:layout="@layout/fragment_orders_parent" >
+        <action
+            android:id="@+id/action_ordersParentFragment_to_activeOrdersFragment"
+            app:destination="@id/activeOrdersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.task14.ReviewFragment.ReviewFragment"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review">
+        <argument
+            android:name="order"
+            app:argType="com.example.task14.ListAdapter.Order"
+            app:nullable="false"/>
+    </fragment>
+</navigation>
