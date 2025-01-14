@@ -33,13 +33,15 @@ class AddCardFragment : BaseFragment<FragmentAddCardBinding>(
         }
 
         binding.addCardButton.setOnClickListener {
-            val cardNumber = binding.cardNumberEditText.text.toString().toLongOrNull()
+            val beforeNumber = binding.cardNumberEditText.text.toString()
+            val cardNumber = beforeNumber.chunked(4).joinToString("-")
             val ownerName = binding.ownerNameEditText.text.toString()
-            val expiryDate = binding.expiryDateEditText.text.toString().replace("/", "").toIntOrNull()
+            val beforeExpire = binding.expiryDateEditText.text.toString()
+            val expiryDate = beforeExpire.chunked(2).joinToString ("/")
             val ccv = binding.ccvEditText.text.toString()
 
             if (cardNumber == null || ownerName.isBlank() || expiryDate == null || ccv.isBlank() || cardBackground == null) {
-                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Fill everything", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

@@ -39,9 +39,9 @@ class CardListAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(card: Card) {
-            binding.cardNumberTextView.text = card.cardNumber.toString()
+            binding.cardNumberTextView.text = card.cardNumber
             binding.ownerNameTextView.text = card.ownerName
-            binding.expiryDateTextView.text = card.expiryDate.toString()
+            binding.expiryDateTextView.text = card.expiryDate
 
             val cardBackground = when (card.cardImage) {
                 cardBackgrond.Visa -> R.drawable.visa_card

@@ -9,17 +9,17 @@ class CardViewModel: ViewModel() {
     private var _cards = mutableListOf(
         Card(
             id = 1,
-            cardNumber = 4111111111111111,
+            cardNumber = "4111-1111-1111-1111",
             ownerName = "Zaur Menteshashvili",
-            expiryDate = 25,
+            expiryDate = "11/25",
             cardImage = cardBackgrond.Visa,
             ccv = "123"
         ),
         Card(
             id = 2,
-            cardNumber = 5555555555554444,
+            cardNumber = "5555-5555-5555-4444",
             ownerName = "Max Verstappen",
-            expiryDate = 26,
+            expiryDate = "01/28",
             cardImage = cardBackgrond.Mastercard,
             ccv = "456"
         )

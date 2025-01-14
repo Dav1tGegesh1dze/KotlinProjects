@@ -2,9 +2,9 @@ package com.example.task15.ListAdapter
 
 data class Card(
     val id: Int,
-    val cardNumber: Long,
+    val cardNumber: String,
     val ownerName: String,
-    val expiryDate: Int,
+    val expiryDate: String,
     val cardImage: cardBackgrond,
     val ccv: String
     )
