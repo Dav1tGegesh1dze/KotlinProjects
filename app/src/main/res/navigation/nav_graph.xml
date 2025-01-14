@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cardManagementFragment">
+
+    <fragment
+        android:id="@+id/cardManagementFragment"
+        android:name="com.example.task15.CardManagement.CardManagementFragment"
+        android:label="fragment_card_management"
+        tools:layout="@layout/fragment_card_management" >
+        <action
+            android:id="@+id/action_cardManagementFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.example.task15.AddCard.AddCardFragment"
+        android:label="AddCardFragment" />
+</navigation>

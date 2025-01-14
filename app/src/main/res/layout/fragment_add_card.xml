@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <!-- "Add New Card" Title -->
+    <TextView
+        android:id="@+id/addCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Card"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Mastercard Photo -->
+    <ImageView
+        android:id="@+id/cardImageView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:src="@drawable/mastercard_card"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/addCardTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/cardNumberEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Card Number"
+        android:inputType="number"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/cardImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/ownerNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Owner Name"
+        android:background="@drawable/rectangle_border"
+        android:inputType="textPersonName"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/cardNumberEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/expiryDateEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_border"
+        android:hint="Expiry Date (MM/YY)"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/ownerNameEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/ccvEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="CCV"
+        android:inputType="numberPassword"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/expiryDateEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/cardTypeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ccvEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/visaRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visa" />
+
+        <RadioButton
+            android:id="@+id/mastercardRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mastercard" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/addCardButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add Card"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/cardTypeRadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
