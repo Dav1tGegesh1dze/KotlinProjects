@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".Fragments.LoginFragment">
 
     <ImageView
         android:id="@+id/topEclipse"
@@ -16,10 +16,10 @@
 
     <TextView
         android:id="@+id/loginText"
-        android:text="Log In "
+        android:text="@string/log_in_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/topEclipse"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
             android:layout_height="24dp"
             android:src="@drawable/username_icon"
             android:layout_gravity="center_vertical"
-            android:contentDescription="User Icon" />
+            android:contentDescription="@string/content_description_message" />
 
         <EditText
             android:id="@+id/emailNameEditText"
@@ -64,7 +64,7 @@
             android:layout_weight="1"
             android:textSize="16sp"
             android:gravity="center_vertical"
-            android:hint="Username"
+            android:hint="@string/username_message"
             android:background="@android:color/transparent"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -90,8 +90,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/password_icon"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="Lock Icon" />
+            android:layout_gravity="center_vertical" />
 
         <EditText
             android:id="@+id/passwordNameEditText"
@@ -100,7 +99,7 @@
             android:layout_weight="1"
             android:textSize="16sp"
             android:gravity="center_vertical"
-            android:hint="Password"
+            android:hint="@string/password_hint"
             android:background="@android:color/transparent"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -117,6 +116,18 @@
     </LinearLayout>
 
 
+    <CheckBox
+        android:id="@+id/rememberMeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="Remember Me"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/passwordLinear"
+        app:layout_constraintStart_toStartOf="@id/passwordLinear"
+        app:layout_constraintTop_toBottomOf="@id/passwordLinear" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
@@ -126,7 +137,7 @@
         android:backgroundTint="@color/purple"
         android:text="Log In"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/passwordLinear"
+        app:layout_constraintTop_toBottomOf="@id/rememberMeCheckBox"
         app:layout_constraintStart_toStartOf="@+id/passwordLinear"
         app:layout_constraintEnd_toEndOf="@+id/passwordLinear"
         android:layout_marginTop="30dp" />

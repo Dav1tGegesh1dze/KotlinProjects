@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".Fragments.RegisterFragment">
 
     <ImageView
         android:id="@+id/topEclipse"
@@ -91,22 +91,22 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/username_icon"
+            android:src="@drawable/password_icon"
             android:layout_gravity="center_vertical"
             android:contentDescription="User Icon" />
 
         <EditText
-            android:id="@+id/userNameEditText"
+            android:id="@+id/passwordEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="16sp"
             android:gravity="center_vertical"
-            android:hint="Username"
+            android:hint="Password"
             android:background="@android:color/transparent"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <LinearLayout
@@ -132,13 +132,13 @@
             android:contentDescription="Lock Icon" />
 
         <EditText
-            android:id="@+id/passwordNameEditText"
+            android:id="@+id/repeatPasswordEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="16sp"
             android:gravity="center_vertical"
-            android:hint="Password"
+            android:hint="Repeat password"
             android:background="@android:color/transparent"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"

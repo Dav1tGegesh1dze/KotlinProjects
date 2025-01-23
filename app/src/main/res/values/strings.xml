@@ -1,5 +1,23 @@
 <resources>
-    <string name="app_name">Task17</string>
+    <string name="app_name">Task18</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Register & Login Fragment -->
+    <string name="empty_fields_message">Fill every field</string>
+    <string name="passwords_do_not_match_message">Passwords do not match</string>
+    <string name="registration_success_message">Registration Successful</string>
+    <string name="login_success_message">Login Successful</string>
+
+    <!-- Register & Login xml-->
+    <string name="log_out_message">Log out</string>
+
+    <string name="log_in_message">Log in</string>
+    <string name="content_description_message">User Icon</string>
+    <string name="username_message">Username</string>
+
+    <string name="password_hint">Password</string>
+
+
+
 </resources>

@@ -9,11 +9,11 @@ android {
         viewBinding = true
     }
 
-    namespace = "com.example.task17"
+    namespace = "com.example.task18"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.task17"
+        applicationId = "com.example.task18"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
