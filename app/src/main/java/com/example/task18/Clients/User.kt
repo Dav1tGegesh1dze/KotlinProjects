@@ -1,4 +1,4 @@
-package com.example.task18.Parseing
+package com.example.task18.Clients
 
 data class User(
     val email: String,

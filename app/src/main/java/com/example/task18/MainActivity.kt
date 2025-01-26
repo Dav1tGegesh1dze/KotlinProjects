@@ -1,17 +1,20 @@
 package com.example.task18
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.task18.databinding.ActivityMainBinding
+import dataStore
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,15 +25,16 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-
-        if (isUserLoggedIn()) {
-            navController.navigate(R.id.homeFragment)
+        lifecycleScope.launch {
+            if (isUserLoggedIn()) {
+                navController.navigate(R.id.homeFragment)
+            }
         }
     }
 
-    private fun isUserLoggedIn(): Boolean {
-        return sharedPreferences.getString("email", null) != null &&
-                sharedPreferences.getBoolean("remember_login", false)
+    private suspend fun isUserLoggedIn(): Boolean {
+        val email = DataStoreManager.getStoredEmail(application)
+        val rememberLogin = application.dataStore.data.first()[booleanPreferencesKey("remember_login")] ?: false
+        return email != null && rememberLogin
     }
 }
