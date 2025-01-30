@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Task21</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_email">Enter email</string>
+    <string name="log_in">Log in</string>
+    <string name="log_in_info">Log In Info</string>
+    <string name="read">Read</string>
+    <string name="save">Save</string>
+</resources>
