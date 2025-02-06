@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Task22</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_yellow_ellipse">Top yellow ellipse</string>
+    <string name="middle_green_ellipse">Middle Green ellipse</string>
+    <string name="red_bottom_ellipse">Red bottom ellipse</string>
+    <string name="security_screen">Security screen</string>
+    <string name="enter_your_passcode">Enter your passcode</string>
+    <string name="fourth_dot_of_password_block">fourth dot of password block</string>
+    <string name="second_dot_of_password_block">second dot of password block</string>
+    <string name="third_dot_of_password_block">third dot of password block</string>
+    <string name="first_dot_of_password_block">first dot of password block</string>
+    <string name="number_1_from_password_keyboard">number 1 from password keyboard</string>
+    <string name="number_2_from_password_keyboard">number 2 from password keyboard</string>
+    <string name="number_3_from_password_keyboard">number 3 from password keyboard</string>
+    <string name="number_4_from_password_keyboard">number 4 from password keyboard</string>
+    <string name="number_5_from_password_keyboard">number 5 from password keyboard</string>
+    <string name="number_6_from_password_keyboard">number 6 from password keyboard</string>
+    <string name="number_7_from_password_keyboard">number 7 from password keyboard</string>
+    <string name="number_8_from_password_keyboard">number 8 from password keyboard</string>
+    <string name="number_9_from_password_keyboard">number 9 from password keyboard</string>
+    <string name="figerprint_id_from_password_keyboard">figerprint ID from password keyboard</string>
+    <string name="number_0_from_password_keyboard">number 0 from password keyboard</string>
+    <string name="backspace_button_from_password_keyboard">backspace button from password keyboard</string>
+    <string name="forgot_password">Forgot password?</string>
+</resources>
