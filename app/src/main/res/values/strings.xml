@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Task23</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_ellipse_content_description">Top ellipse content description</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_image">Welcome image</string>
+    <string name="register">Register</string>
+    <string name="log_in">Log In</string>
+    <string name="bottom_eclipse_image">Bottom eclipse image</string>
+    <string name="register_fragment">Register</string>
+    <string name="top_eclipse_image">top Eclipse Image</string>
+    <string name="register_fragment_image_of_register_fragment">Register fragment image of Register Fragment</string>
+    <string name="email_icon">Email Icon</string>
+    <string name="email">Email</string>
+    <string name="user_icon">User Icon</string>
+    <string name="password">Password</string>
+    <string name="lock_icon">Lock Icon</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="show_password_icon">Show Password Icon</string>
+    <string name="register_fragment_last">Register</string>
+    <string name="log_in_fragment">log In</string>
+    <string name="android_login_fragment_image">android login fragment Image</string>
+    <string name="username_icon_image">Username Icon image</string>
+    <string name="email_edittext">Email:</string>
+    <string name="password_icon">Password Icon</string>
+    <string name="password_edittext">Password:</string>
+    <string name="show_password_icon_login">Show Password Icon</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="log_in_fragment_login">Log In</string>
+    <string name="log_out_fragment_home">Log out</string>
+    <string name="profile">Profile</string>
+    <string name="bottom_eclipse_of_login_imageview">Bottom eclipse of login imageView</string>
+    <string name="profile_avatar_photo">profile avatar photo</string>
+</resources>
