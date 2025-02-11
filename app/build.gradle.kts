@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
-    kotlin("plugin.serialization") version "2.1.10"
+    kotlin("plugin.serialization") version "2.1.0"
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -41,7 +42,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -58,15 +58,19 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.kotlinx.serialization.json)
-    implementation (libs.glide)
-    implementation (libs.androidx.datastore.preferences)
+    implementation(libs.glide)
+    implementation(libs.androidx.datastore.preferences)
     implementation(kotlin("script-runtime"))
-    implementation (libs.androidx.datastore.preferences.rxjava2)
-    implementation (libs.glide)
-    implementation (libs.androidx.paging.runtime.ktx)
-    implementation (libs.retrofit2.kotlinx.serialization.converter)
-    implementation (libs.retrofit)
-    implementation (libs.okhttp)
+    implementation(libs.androidx.datastore.preferences.rxjava2)
+    implementation(libs.glide)
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
 
-
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version") // Use KSP for Room
+    implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.room:room-paging:$room_version")
 }

@@ -1,17 +1,28 @@
 package com.example.task23.data.remote
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import com.example.task23.data.local.ProfileItem
-import com.example.task23.presentation.profile.ProfilePagingSource
+import androidx.paging.*
+import com.example.task23.data.local.ProfileDatabase
+import com.example.task23.presentation.profile.ProfileItem
+import com.example.task23.presentation.profile.ProfileRemoteMediator
 import kotlinx.coroutines.flow.Flow
 
-class ProfileRepository(private val service: ProfileService) {
+class ProfileRepository(
+    private val database: ProfileDatabase,
+    private val service: ProfileService
+) {
+    @OptIn(ExperimentalPagingApi::class)
     fun getProfiles(): Flow<PagingData<ProfileItem>> {
         return Pager(
-            config = PagingConfig(pageSize = 6, enablePlaceholders = false),
-            pagingSourceFactory = { ProfilePagingSource(service) }
+            config = PagingConfig(
+                pageSize = 4,
+                enablePlaceholders = false,
+                initialLoadSize = 4 ,
+                prefetchDistance = 1
+            ),
+            remoteMediator = ProfileRemoteMediator(database, service),
+            pagingSourceFactory = { database.profileDao().getProfiles() }
         ).flow
     }
+
 }
+

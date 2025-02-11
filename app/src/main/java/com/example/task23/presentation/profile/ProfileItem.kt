@@ -1,16 +1,17 @@
-package com.example.task23.data.local
+package com.example.task23.presentation.profile
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
+@Entity(tableName = "profiles")
 data class ProfileItem(
-    val id: Int,
+    @PrimaryKey val id: Int,
     val email: String,
-    @SerialName("first_name")
-    val firstName: String,
-    @SerialName("last_name")
-    val lastName: String,
+    @SerialName("first_name") val firstName: String,
+    @SerialName("last_name") val lastName: String,
     val avatar: String
 )
 
@@ -22,4 +23,3 @@ data class ProfilesResponse(
     @SerialName("total_pages") val totalPages: Int,
     val data: List<ProfileItem>
 )
-

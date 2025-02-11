@@ -1,12 +1,12 @@
 package com.example.task23.presentation.profile
 
+import android.annotation.SuppressLint
 import com.example.task23.databinding.ProfileItemBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.task23.data.local.ProfileItem
 
 
 class ProfileAdapter : androidx.paging.PagingDataAdapter<ProfileItem, ProfileAdapter.ProfileViewHolder>(
@@ -24,6 +24,7 @@ class ProfileAdapter : androidx.paging.PagingDataAdapter<ProfileItem, ProfileAda
     }
 
     class ProfileViewHolder(private val binding: ProfileItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(profile: ProfileItem) {
             binding.apply {
                 profileName.text = "${profile.firstName} ${profile.lastName}"

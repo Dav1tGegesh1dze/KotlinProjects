@@ -1,7 +1,7 @@
 package com.example.task23.data.remote
 
+import com.example.task23.presentation.profile.ProfilesResponse
 import com.example.task23.data.local.AuthResponse
-import com.example.task23.data.local.ProfilesResponse
 import com.example.task23.data.local.User
 import retrofit2.Response
 import retrofit2.http.Body

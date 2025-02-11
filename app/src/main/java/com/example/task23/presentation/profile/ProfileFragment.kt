@@ -6,18 +6,21 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task23.BaseFragment
+import com.example.task23.data.local.ProfileDatabase
 import com.example.task23.data.remote.ProfileRepository
 import com.example.task23.data.remote.RetrofitClient
 import com.example.task23.databinding.FragmentProfileBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
     private val viewModel: ProfileViewModel by viewModels {
-        ProfileViewModel.Factory(ProfileRepository(RetrofitClient.apiService))
+        ProfileViewModel.Factory(
+            ProfileRepository(ProfileDatabase.getDatabase(requireContext()), RetrofitClient.apiService)
+        )
     }
+
     private val profileAdapter = ProfileAdapter()
 
     override fun start() {
