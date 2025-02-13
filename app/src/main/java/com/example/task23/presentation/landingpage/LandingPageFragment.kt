@@ -6,21 +6,21 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.task23.BaseFragment
-import com.example.task23.DataStoreManager
 import com.example.task23.R
 import com.example.task23.databinding.FragmentLandingPageBinding
 import com.example.task23.presentation.login.LoginViewModel
-import com.example.task23.presentation.login.LoginViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
-class LandingPageFragment: BaseFragment<FragmentLandingPageBinding>(FragmentLandingPageBinding::inflate){
-    private val loginViewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(DataStoreManager(requireContext()))
-    }
+@AndroidEntryPoint
+class LandingPageFragment : BaseFragment<FragmentLandingPageBinding>(FragmentLandingPageBinding::inflate) {
 
-    override fun start(){
+
+    private val loginViewModel: LoginViewModel by viewModels()
+
+    override fun start() {
         goToRegisterFragment()
         goToLoginFragment()
         checkRememberMe()
@@ -30,7 +30,7 @@ class LandingPageFragment: BaseFragment<FragmentLandingPageBinding>(FragmentLand
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 loginViewModel.isRemembered.collectLatest { remembered ->
-                    if (remembered == "true") {
+                    if (remembered == true) {
                         findNavController().navigate(R.id.action_landingPageFragment_to_homeFragment)
                     }
                 }
@@ -49,6 +49,4 @@ class LandingPageFragment: BaseFragment<FragmentLandingPageBinding>(FragmentLand
             findNavController().navigate(R.id.action_landingPageFragment_to_loginFragment)
         }
     }
-
-
 }

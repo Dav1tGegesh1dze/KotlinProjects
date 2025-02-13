@@ -7,19 +7,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.task23.BaseFragment
-import com.example.task23.DataStoreManager
 import com.example.task23.R
 import com.example.task23.databinding.FragmentHomeBinding
 import com.example.task23.presentation.login.LoginViewModel
-import com.example.task23.presentation.login.LoginViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
-    private val loginViewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(DataStoreManager(requireContext()))
-    }
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun start() {
         setupUI()
@@ -47,15 +45,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
-    private fun stayOnFragment(){
+    private fun stayOnFragment() {
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
             }
-
         }
         requireActivity().onBackPressedDispatcher.addCallback(
-            this,
-            onBackPressedCallback)
+            viewLifecycleOwner,
+            onBackPressedCallback
+        )
     }
 }

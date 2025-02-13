@@ -5,6 +5,9 @@ plugins {
 
     id("com.google.devtools.ksp") version "2.1.0-1.0.29"
 
+    id("com.google.dagger.hilt.android") version "2.51.1" apply false
+
+
 
 
 

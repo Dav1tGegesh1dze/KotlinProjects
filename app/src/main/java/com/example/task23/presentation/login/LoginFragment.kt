@@ -1,28 +1,35 @@
 package com.example.task23.presentation.login
 
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.task23.BaseFragment
-import com.example.task23.DataStoreManager
 import com.example.task23.R
 import com.example.task23.data.local.Resource
 import com.example.task23.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
-    private val loginViewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(DataStoreManager(requireContext()))
-    }
+
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun start() {
         observeLoginState()
         setupListeners()
         autoFillFields()
+        handleBackPress()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loginViewModel.resetLoginState()
     }
 
     private fun autoFillFields() {
@@ -47,10 +54,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         binding.loginButton.setOnClickListener {
             val email = binding.emailNameEditText.text.toString().trim()
             val password = binding.passwordNameEditText.text.toString().trim()
-            val rememberMe = binding.rememberMeCheckBox.isChecked ?: false
+            val rememberMe = binding.rememberMeCheckBox.isChecked
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                showToast("Please fill in all fields")
                 return@setOnClickListener
             }
             loginViewModel.login(email, password, rememberMe)
@@ -63,20 +70,31 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 loginViewModel.loginState.collectLatest { state ->
                     when (state) {
                         is Resource.Success -> {
-                            if (binding.emailNameEditText.text.toString().trim() == "eve.holt@reqres.in") {
-                                Toast.makeText(requireContext(), "Login successful!", Toast.LENGTH_SHORT).show()
-                                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                            } else {
-                                Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()
-                            }
+                            showToast("Login successful!")
+                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         }
                         is Resource.Error -> {
-                            Toast.makeText(requireContext(), state.errorMessage, Toast.LENGTH_SHORT).show()
+                            showToast(state.errorMessage)
                         }
-                        null -> {}
+                        null -> {  }
                     }
                 }
             }
+        }
+    }
+
+    private fun handleBackPress() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.action_loginFragment_to_landingPageFragment)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
+    private fun showToast(message: String) {
+        if (isAdded) {
+            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         }
     }
 }

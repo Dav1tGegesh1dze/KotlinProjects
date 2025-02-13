@@ -2,42 +2,50 @@ package com.example.task23.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.task23.DataStoreManager
-import com.example.task23.data.local.AuthResponse
 import com.example.task23.data.local.Resource
-import com.example.task23.data.local.User
-import com.example.task23.data.remote.ApiHelper
-import com.example.task23.data.remote.RetrofitClient
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel(private val dataStoreManager: DataStoreManager) : ViewModel() {
-    private val _loginState = MutableStateFlow<Resource<AuthResponse>?>(null)
-    val loginState: StateFlow<Resource<AuthResponse>?> = _loginState.asStateFlow()
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val repository: LoginRepository
+) : ViewModel() {
+    private val _loginState = MutableStateFlow<Resource<Unit>?>(null)
+    val loginState: StateFlow<Resource<Unit>?> = _loginState.asStateFlow()
 
-    val savedEmail = dataStoreManager.userEmail
-    val savedPassword = dataStoreManager.userPassword
-    val isRemembered = dataStoreManager.isRemembered
+    val savedEmail = repository.userEmail
+    val savedPassword = repository.userPassword
+    val isRemembered = repository.isRemembered
 
     fun login(email: String, password: String, rememberMe: Boolean) {
         viewModelScope.launch {
-            val response = ApiHelper.handleHttpRequest {
-                RetrofitClient.apiService.login(User(email, password))
-            }
-            _loginState.value = response
-
-            if (response is Resource.Success) {
-                dataStoreManager.saveUser(email, password, rememberMe)
+            try {
+                if (email == "eve.holt@reqres.in") {
+                    if (rememberMe) {
+                        repository.saveUserCredentials(email, password, rememberMe)
+                    }
+                    _loginState.value = Resource.Success(Unit)
+                } else {
+                    _loginState.value = Resource.Error("Invalid credentials")
+                }
+            } catch (e: Exception) {
+                _loginState.value = Resource.Error(e.localizedMessage ?: "An error occurred")
             }
         }
     }
 
     fun clearSession() {
         viewModelScope.launch {
-            dataStoreManager.clearUser()
+            repository.clearUserCredentials()
+            _loginState.value = null
         }
     }
-}
 
+    fun resetLoginState() {
+        _loginState.value = null
+    }
+}

@@ -1,18 +1,16 @@
 package com.example.task23.presentation.profile
 
 import android.annotation.SuppressLint
-import com.example.task23.databinding.ProfileItemBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-
+import com.example.task23.databinding.ProfileItemBinding
 
 class ProfileAdapter : androidx.paging.PagingDataAdapter<ProfileItem, ProfileAdapter.ProfileViewHolder>(
     ProfileDiffCallback()
 ) {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val binding = ProfileItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ProfileViewHolder(binding)
@@ -23,7 +21,8 @@ class ProfileAdapter : androidx.paging.PagingDataAdapter<ProfileItem, ProfileAda
         profile?.let { holder.bind(it) }
     }
 
-    class ProfileViewHolder(private val binding: ProfileItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ProfileViewHolder(private val binding: ProfileItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(profile: ProfileItem) {
             binding.apply {
@@ -34,13 +33,15 @@ class ProfileAdapter : androidx.paging.PagingDataAdapter<ProfileItem, ProfileAda
                     .load(profile.avatar)
                     .centerCrop()
                     .into(profileAvatar)
-
             }
         }
     }
 
     class ProfileDiffCallback : DiffUtil.ItemCallback<ProfileItem>() {
-        override fun areItemsTheSame(oldItem: ProfileItem, newItem: ProfileItem) = oldItem.id == newItem.id
-        override fun areContentsTheSame(oldItem: ProfileItem, newItem: ProfileItem) = oldItem == newItem
+        override fun areItemsTheSame(oldItem: ProfileItem, newItem: ProfileItem) =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: ProfileItem, newItem: ProfileItem) =
+            oldItem == newItem
     }
 }
