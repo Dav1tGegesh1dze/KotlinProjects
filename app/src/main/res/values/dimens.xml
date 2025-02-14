@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="page_margin">8dp</dimen>
+    <dimen name="page_offset">12dp</dimen>
+    <dimen name="card_padding">12dp</dimen>
+    <dimen name="card_width">300dp</dimen>
+
+
+</resources>
