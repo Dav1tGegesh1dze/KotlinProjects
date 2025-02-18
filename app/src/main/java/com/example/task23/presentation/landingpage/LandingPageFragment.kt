@@ -31,12 +31,17 @@ class LandingPageFragment : BaseFragment<FragmentLandingPageBinding>(FragmentLan
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 loginViewModel.isRemembered.collectLatest { remembered ->
                     if (remembered == true) {
-                        findNavController().navigate(R.id.action_landingPageFragment_to_homeFragment)
+                        try {
+                            findNavController().navigate(R.id.action_landingPageFragment_to_homeFragment)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
                     }
                 }
             }
         }
     }
+
 
     private fun goToRegisterFragment() {
         binding.registerButton.setOnClickListener {

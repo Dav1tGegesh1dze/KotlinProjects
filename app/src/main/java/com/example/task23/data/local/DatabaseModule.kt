@@ -1,7 +1,6 @@
 package com.example.task23.data.local
 
-import android.content.Context
-import androidx.room.Room
+import com.example.task23.BuildConfig
 import com.example.task23.DataStoreManager
 import com.example.task23.data.remote.ApiHelper
 import com.example.task23.data.remote.ProfileService
@@ -13,9 +12,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import javax.inject.Singleton
-
+import android.content.Context
+import androidx.room.Room
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -41,14 +43,43 @@ object DatabaseModule {
 object NetworkModule {
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
+    fun provideJson(): Json = Json {
+        ignoreUnknownKeys = true
+        prettyPrint = true
+        isLenient = true
+    }
+
+    @Provides
+    @Singleton
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
+            }
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        json: Json
+    ): Retrofit {
+        val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
-            .baseUrl("https://reqres.in/api/")
-            .addConverterFactory(
-                Json {
-                    ignoreUnknownKeys = true
-                }.asConverterFactory("application/json".toMediaType())
-            )
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
     }
 

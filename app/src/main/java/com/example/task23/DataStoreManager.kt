@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -22,17 +23,28 @@ class DataStoreManager @Inject constructor(@ApplicationContext private val conte
         private val REMEMBER_ME_KEY = booleanPreferencesKey("remember_me")
     }
 
-    val userEmail: Flow<String?> = context.dataStore.data.map { prefs ->
-        prefs[USER_EMAIL_KEY]
-    }
+    val userEmail: Flow<String?> = context.dataStore.data
+        .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
+        .map { prefs ->
+            prefs[USER_EMAIL_KEY]
+        }
 
-    val userPassword: Flow<String?> = context.dataStore.data.map { prefs ->
-        prefs[USER_PASSWORD_KEY]
-    }
+    val userPassword: Flow<String?> = context.dataStore.data
+        .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
+        .map { prefs ->
+            prefs[USER_PASSWORD_KEY]
+        }
 
-    val isRemembered: Flow<Boolean?> = context.dataStore.data.map { prefs ->
-        prefs[REMEMBER_ME_KEY]
-    }
+    val isRemembered: Flow<Boolean> = context.dataStore.data
+        .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
+        .map { prefs ->
+            try {
+                prefs[REMEMBER_ME_KEY] ?: false
+            } catch (e: ClassCastException) {
+                context.dataStore.edit { it.remove(REMEMBER_ME_KEY) }
+                false
+            }
+        }
 
     suspend fun saveUser(email: String, password: String, rememberMe: Boolean = false) {
         context.dataStore.edit { prefs ->

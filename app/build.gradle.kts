@@ -12,6 +12,7 @@ plugins {
 android {
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
     namespace = "com.example.task23"
     compileSdk = 35
@@ -27,7 +28,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/api/\"")
+            isMinifyEnabled = false
+        }
         release {
+            buildConfigField("String", "BASE_URL", "\"https://api.production.example.com/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -79,6 +85,8 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 }
 kapt {
     correctErrorTypes = true
