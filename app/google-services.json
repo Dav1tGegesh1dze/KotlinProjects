@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "369491123149",
+    "project_id": "ponti-ea44b",
+    "storage_bucket": "ponti-ea44b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369491123149:android:4025b37a17b4fa68e60284",
+        "android_client_info": {
+          "package_name": "com.example.ponti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369491123149-el2em6oj2eht3p6mr8fsghurf9e3870c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMylpCY9EgDs4RL9Zq0VWGdEHnviqn1KI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369491123149-el2em6oj2eht3p6mr8fsghurf9e3870c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

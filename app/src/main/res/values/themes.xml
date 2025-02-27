@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Ponti" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Ponti" parent="Base.Theme.Ponti" />
+
+    <style name="Theme.Ponti.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/light_red</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ponti_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Ponti</item>
+    </style>
+
+</resources>
