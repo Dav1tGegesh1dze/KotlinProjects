@@ -45,7 +45,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(
                     is AuthState.Success -> {
                         hideLoading()
                         showToast("Login successful!")
-                        findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_logInFragment_to_eventFragment)
                     }
                     is AuthState.Error -> {
                         hideLoading()

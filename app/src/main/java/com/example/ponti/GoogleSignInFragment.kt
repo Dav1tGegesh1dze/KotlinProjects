@@ -63,7 +63,7 @@ class GoogleSignInFragment : BaseFragment<FragmentGoogleSignInBinding>(
                     is AuthState.Success -> {
                         hideLoading()
                         showToast("Google sign in successful!")
-                        findNavController().navigate(R.id.action_googleSignInFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_googleSignInFragment_to_eventFragment)
                     }
                     is AuthState.Error -> {
                         hideLoading()
